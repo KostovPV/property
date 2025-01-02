@@ -1,3 +1,4 @@
+import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import '@/assets/styles/globals.css';
 
@@ -16,6 +17,7 @@ const MainLayout = ({children}) => {
             <main>
               {children}
             </main>
+            <Footer />
         </body>
     </html> );
 }
