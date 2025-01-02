@@ -1,71 +1,31 @@
 import { Schema, model, models } from 'mongoose';
 
-
-const PropertySchema = new Schema(
-    {
-        owner: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
-            required: true
-        },
-        name: {
-            type: String,
-            required: true
-        },
-        type: {
-            type: String,
-            required: true
-        },
-        description: {
-            type: String,
-        },
-        location: {
-            street: String,
-            city: String,
-            state: String,
-            zipcode: String
-        },
-        beds: {
-            type: Number,
-            required: true
-        },
-        baths: {
-            type: Number,
-            required: true
-        },
-        square_feet: {
-            type: Number,
-            required: true
-        },
-        amenities: [
-            {
-                type: String
-            }
-        ],
-        rates: {
-            nightly: Number,
-            weekly: Number,
-            monthly: Number
-        },
-        seller_inf0: {
-            name: String,
-            email: String,
-            phone: String
-        },
-        images: [
-            {
-                type: String
-            }
-        ],
-        isFeatured: {
-            type: Boolean,
-            default: false
-        },
+const UserSchema = new Schema(
+  {
+    email: {
+      type: String,
+      unique: [true, 'Email already exists'],
+      required: [true, 'Email is required'],
     },
-    {
-        timestamps: true
-    });
+    username: {
+      type: String,
+      required: [true, 'Username is required'],
+    },
+    image: {
+      type: String,
+    },
+    bookmarks: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Property',
+      },
+    ],
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const Property = models.Property || model('Property', PropertySchema);
+const User = models.User || model('User', UserSchema);
 
-export default Property;
+export default User;

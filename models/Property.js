@@ -1,29 +1,91 @@
-import { Schema, model, models} from 'mongoose';
+import { Schema, model, models } from 'mongoose';
 
-
-const UserSchema = new Schema({
-    email: {
+const PropertySchema = new Schema(
+  {
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    type: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+    },
+    location: {
+      street: {
         type: String,
-        unique: [true, 'Email already exists'],
-        required: [true, 'Email is required']
-    },
-    username: {
+      },
+      city: {
         type: String,
-        required: [true, 'Username is required']
+      },
+      state: {
+        type: String,
+      },
+      zipcode: {
+        type: String,
+      },
     },
-    image: {
-        type: String
+    beds: {
+      type: Number,
+      required: true,
     },
-    bookmarks: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Property'
-        }
-    ]
-}, {
-    timestamps: true
-});
+    baths: {
+      type: Number,
+      required: true,
+    },
+    square_feet: {
+      type: Number,
+      required: true,
+    },
+    amenities: [
+      {
+        type: String,
+      },
+    ],
+    rates: {
+      nightly: {
+        type: Number,
+      },
+      weekly: {
+        type: Number,
+      },
+      monthly: {
+        type: Number,
+      },
+    },
+    seller_info: {
+      name: {
+        type: String,
+      },
+      email: {
+        type: String,
+      },
+      phone: {
+        type: String,
+      },
+    },
+    images: [
+      {
+        type: String,
+      },
+    ],
+    is_featured: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const User = models.User || model('User', UserSchema);
+const Property = models.Property || model('Property', PropertySchema);
 
-export default User;
+export default Property;
