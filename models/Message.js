@@ -5,17 +5,17 @@ const MessageSchema = new Schema(
         sender: {
             type: Schema.Types.ObjectId,
             ref: 'User',
-            required: rtue
+            required: true
         },
         recipient: {
             type: Schema.Types.ObjectId,
             ref: 'User',
-            required: rtue
+            required: true
         },
         property: {
             type: Schema.Types.ObjectId,
             ref: 'Property',
-            required: rtue
+            required: true
         },
         name: {
             type: String,
