@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import '@/assets/styles/globals.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import "photoswipe/dist/photoswipe.css";
 
 export const metadata = {
     title: 'Property Pulse',
