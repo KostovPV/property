@@ -12,7 +12,6 @@ const MessagePage = async () => {
     const sessionUser = await getSessionUser();
 
     const { userId } = sessionUser;
-    console.log(userId);
 
     const readMessages = await Message.find({ recipient: userId, read: true })
         .sort({ createdAt: -1 }) // Sort read messages in asc order
