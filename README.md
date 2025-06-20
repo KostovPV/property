@@ -2,7 +2,8 @@
 
 A modern and responsive real estate application built with **Next.js** and **MongoDB**. The app allows users to browse, filter, and view real estate listings with a clean UI and fast performance.
 
-👉 [Live Demo]([https://property-plum.vercel.app/])
+🔗 Live Demo
+Check the app live at: [https://property-plum.vercel.app/]
 
 ---
 
